@@ -57,6 +57,5 @@ def diagnose(filename):
  
  return positive,negative
  
-print(diagnose('journal.json'))
  
  
