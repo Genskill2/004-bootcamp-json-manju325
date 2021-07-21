@@ -10,7 +10,8 @@ def load_journal(filename):
 def compute_phi(filename,event):
  n=[0,0,0,0]
  journal_dict=load_journal(filename)
- for i in range(0,90):
+
+ for i in range(0,91):
   if event in journal_dict[i]['events'] and journal_dict[i]['squirrel']==True:
    n[3]=n[3]+1
   elif journal_dict[i]['squirrel']==True:
@@ -26,10 +27,12 @@ def compute_phi(filename,event):
 def compute_correlations(filename):
  journal_dict=load_journal(filename)
  final_dict={}
- for i in range(0,90):
+
+ for i in range(0,91):
   for event in journal_dict[i]['events']:
    if event not in final_dict:
     final_dict[event]=compute_phi(filename,event)
+     
  return final_dict
     
 def diagnose(filename):
@@ -57,5 +60,5 @@ def diagnose(filename):
  
  return positive,negative
  
- 
+print(diagnose('journal.json'))
  
